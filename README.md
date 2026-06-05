@@ -1,4 +1,4 @@
-# nokia-arista
+# nokia-arista-multipod-dcf
 
 A multi-vendor EVPN-VXLAN data-center fabric in [containerlab](https://containerlab.dev): two leaf-spine pods — one Nokia **SR Linux**, one Arista **cEOS** — joined into a single stretched overlay so that four hosts across both pods reach each other over L2 and L3.
 
@@ -102,7 +102,7 @@ Each host bonds `eth1`+`eth2` into a single LACP `bond0` and dual-homes to a lea
 ## Deploy
 
 ```bash
-sudo containerlab deploy -t nokia-arista.clab.yaml
+sudo containerlab deploy -t nokia-arista-multipod-dcf.clab.yaml
 ```
 
 > **Allow ~90 s for convergence.** Every node sets the IS-IS **overload bit on boot for 90 seconds** (`overload on-boot` / `set-overload-bit on-startup 90`). The fabric stays out of the transit path until that timer expires, so BGP-EVPN sessions, MAC/IP learning, and end-to-end pings settle roughly 90 seconds after the deploy completes. A first ping right after deploy may fail — wait it out.
@@ -272,8 +272,8 @@ done
 ## Repository layout
 
 ```
-nokia-arista/
-├── nokia-arista.clab.yaml      # containerlab topology (nodes, links, host bonds)
+nokia-arista-multipod-dcf/
+├── nokia-arista-multipod-dcf.clab.yaml   # containerlab topology (nodes, links, host bonds)
 ├── topology.png                # diagram
 └── configs/
     ├── nokia-spine1.cfg  nokia-spine2.cfg     # SR Linux — IS-IS transit, no BGP

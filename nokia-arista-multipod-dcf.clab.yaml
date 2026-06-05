@@ -4,7 +4,7 @@
 # Underlay : multi-area IS-IS, every node L1L2, inter-pod spine mesh = L2-only.   Overlay : iBGP-EVPN ASN 65524, Arista spines = RR.
 # Services : BD-A (10.110.0.0/24, VNI 10110) + BD-B (10.120.0.0/24, VNI 10120) stretched both pods, tenant VRF (L3 VNI 50001) routes A<->B.
 # Nokia ports: IXR-D4 = ethernet-1/1..36 (leaf uplinks on 1/33->spine1, 1/34->spine2); IXR-H4 = ethernet-1/1..66.
-name: nokia-arista
+name: nokia-arista-multipod-dcf
 prefix: ""
 
 topology:
