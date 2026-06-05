@@ -269,16 +269,6 @@ for s in h1 h2 h3 h4; do
 done
 ```
 
-### Live result (captured 2026-06-05)
-
-- **Nodes:** 16/16 running, `RestartCount=0` on every node (12 switches + 4 hosts).
-- **Nokia IS-IS:** each spine has 6 adjacencies up — 4 to local leaves + **2 Level-2 to the Arista spines**.
-- **Arista IS-IS:** both spines show both Nokia spines as `L2 / UP`, plus 4 L1L2 to local leaves.
-- **BGP-EVPN:** **9/9 Established** on both Arista RRs.
-- **MLAG (`arista-leaf5`):** domain `POD-AB-56`, state `Active`, peer-link `Up`, peer-config `consistent`.
-- **Nokia ES (`h1_esi`):** Oper `up`, all-active, DF elected = `10.252.200.1` (candidates `.1` DF + `.2`).
-- **Ping matrix:** **all 12 directed host pairs at 0% loss** in steady state (avg ~3 ms intra-subnet, ~10–15 ms cross-pod routed). The very first packet on a cold path can drop while ARP/MAC is learned, then it's clean.
-
 ## Repository layout
 
 ```
